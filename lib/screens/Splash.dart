@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class Splash extends StatelessWidget {
+  const Splash({super.key});
 
   // This widget is the root of your application.
   @override
