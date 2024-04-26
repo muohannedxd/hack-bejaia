@@ -1,144 +1,103 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:navira/constants/custom_colors.dart';
 import 'package:navira/constants/text_sizes.dart';
+import 'package:navira/data/quais.dart';
+import 'package:navira/screens/Quai.dart';
 
 class Quailist extends StatelessWidget {
   const Quailist({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: CustomColors.bgColor,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          title: Text(
-            'Liste Des Quais',
-            style: TextStyle(
-                fontWeight: FontWeight.bold, color: CustomColors.textPrimary, fontSize: TextSizes.title),
-          ),
-          centerTitle: true,
+    return Scaffold(
+      backgroundColor: CustomColors.bgColor,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        title: Text(
+          'Liste Des Quais',
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: CustomColors.textPrimary,
+              fontSize: TextSizes.verybig),
         ),
-        body: Center(
-          child: Container(
-            padding: EdgeInsets.all(10.0),
-            margin: EdgeInsets.all(10.0),
-            child: MyScrollableList(),
-            decoration: BoxDecoration(
-              color: Colors.white, // Set the background color here
-              borderRadius:
-                  BorderRadius.circular(10.0), // Set the border radius here
-            ),
-          ),
-        ),
+        centerTitle: true,
       ),
-    );
-  }
-}
-
-class MyScrollableList extends StatelessWidget {
-  const MyScrollableList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        MyCard(
-          emoji: '👤', // Passenger emoji
-          quaiNumber: 'Quai 1',
-          status: true, // Available status
-        ),
-        MyCard(
-          emoji: '⛽', // Petroleum barrel emoji
-          quaiNumber: 'Quai 2',
-          status: false, // Occupied status
-        ),
-        MyCard(
-          emoji: '📦', // Merchandise emoji
-          quaiNumber: 'Quai 3',
-          status: true, // Available status
-        ),
-        MyCard(
-          emoji: '👤', // Passenger emoji
-          quaiNumber: 'Quai 4',
-          status: false, // Occupied status
-        ),
-        MyCard(
-          emoji: '⛽', // Petroleum barrel emoji
-          quaiNumber: 'Quai 5',
-          status: true, // Available status
-        ),
-      ],
-    );
-  }
-}
-
-class MyCard extends StatelessWidget {
-  final String emoji;
-  final String quaiNumber;
-  final bool status; // true for available, false for occupied
-
-  const MyCard({
-    Key? key,
-    required this.emoji,
-    required this.quaiNumber,
-    required this.status,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  emoji,
-                  style: TextStyle(fontSize: 24), // Adjust size as needed
-                ),
-                SizedBox(width: 8), // Add spacing between emoji and quai number
-                Text(quaiNumber),
-              ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        child: SingleChildScrollView(
+          child: Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: CustomColors.white,
+              borderRadius: BorderRadius.circular(
+                  12.0), // Set the border radius here // Example background color
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                status
-                    ? Row(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: quaiData.values.map((quai) {
+                return (GestureDetector(
+                  onTap: () => Navigator.pushNamed(
+                    context,
+                    '/quai',
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                            10.0), // Adjust the radius as needed
+                        border: Border.all(
+                            color: Colors.grey.withOpacity(0.4),
+                            width: 1.0), // Red thin border
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Icon(
-                            Icons.circle,
-                            color: Colors.green,
-                            size: 12,
+                          Row(
+                            children: [
+                              Image.asset(
+                                'assets/logo/${quai.icon}.png',
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                quai.name,
+                                style: TextStyle(
+                                    fontSize: TextSizes.medium,
+                                    fontWeight: FontWeight.bold),
+                              )
+                            ],
                           ),
-                          SizedBox(width: 4),
-                          Text(
-                            'Disponible',
-                            style: TextStyle(color: Colors.green),
-                          ),
-                        ],
-                      )
-                    : Row(
-                        children: [
-                          Icon(
-                            Icons.circle,
-                            color: Colors.red,
-                            size: 12,
-                          ),
-                          SizedBox(width: 4),
-                          Text(
-                            'Occupé',
-                            style: TextStyle(color: Colors.red),
-                          ),
+                          Row(
+                            children: [
+                              Text(
+                                quai.status,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: CustomColors.textGrey),
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Image.asset(
+                                'assets/logo/${quai.status}.png',
+                              ),
+                            ],
+                          )
                         ],
                       ),
-              ],
+                    ),
+                  ),
+                ));
+              }).toList(),
             ),
-          ],
+          ),
         ),
       ),
     );
