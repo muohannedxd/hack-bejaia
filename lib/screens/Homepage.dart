@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:navira/constants/custom_colors.dart';
 import 'package:navira/screens/Mainpage.dart';
 import 'package:navira/screens/Quailist.dart';
-import 'package:navira/screens/Settings.dart';
+import 'package:navira/screens/Map.dart';
 import 'package:navira/utils/myBehavior.dart';
 
 class Homepage extends StatefulWidget {
@@ -94,11 +94,11 @@ class _HomepageState extends State<Homepage> {
                       label: 'Menu'
                     ),
                     BottomNavigationBarItem(
-                      activeIcon: Icon(Icons.settings_rounded,
+                      activeIcon: Icon(Icons.map_rounded,
                           size: 22, color: CustomColors.textPrimary),
-                      icon: Icon(Icons.settings_outlined,
+                      icon: Icon(Icons.map_outlined,
                           size: 20, color: CustomColors.textGrey),
-                      label: 'Settings'
+                      label: 'Map'
                     ),
                   ],
                 ),

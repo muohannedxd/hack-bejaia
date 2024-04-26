@@ -197,14 +197,14 @@ class _MainpageState extends State<Mainpage> {
                                   width: 4,
                                 ),
                                 IconButton(
-                                  icon: Image.asset(
-                                    'assets/logo/search_filled.png',
-                                    width: 22,
-                                    color: CustomColors.textPrimary,
-                                  ),
-                                  onPressed:
-                                      () {}, // Or call submitSearch directly here
-                                ),
+                                    icon: Image.asset(
+                                      'assets/logo/search_filled.png',
+                                      width: 22,
+                                      color: CustomColors.textPrimary,
+                                    ),
+                                    onPressed: () => showQuaiDialog(
+                                        context) // Or call submitSearch directly here
+                                    ),
                               ],
                             )
                           ],
@@ -218,4 +218,157 @@ class _MainpageState extends State<Mainpage> {
           ],
         ));
   }
+}
+
+void showQuaiDialog(BuildContext context) {
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+            backgroundColor: CustomColors.white,
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  height: 20,
+                ),
+                Image.asset(
+                  'assets/logo/ship.png',
+                  width: 32,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text('QUAI 24',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: TextSizes.subtitle)),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'Est Disponible Maintenant pour le debarquement, Confirmer la reservation?',
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  width: 120,
+                  child: FilledButton(
+                      child: Text(
+                        "Confirmer",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: TextSizes.medium),
+                      ),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            CustomColors
+                                .buttonPrimary), // Set the background color to blue
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        showWarningDialog(context);
+                      } // Or call submitSearch directly here
+                      ),
+                ),
+                SizedBox(
+                  height: 4,
+                ),
+                Container(
+                  width: 120,
+                  child: FilledButton(
+                    child: Text(
+                      "Retour",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: TextSizes.medium),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          CustomColors
+                              .redAlert), // Set the background color to blue
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ),
+              ],
+            ));
+      });
+}
+
+void showWarningDialog(BuildContext context) {
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+            backgroundColor: CustomColors.white,
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  height: 20,
+                ),
+                Image.asset(
+                  'assets/logo/ship.png',
+                  width: 32,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text('WARNING!',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: TextSizes.subtitle)),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  "Aucun Quai n’est disponible pour le moment pour le navire Bliss Ship",
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  width: 120,
+                  child: FilledButton(
+                    child: Text(
+                      "Retour",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: TextSizes.medium),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          CustomColors
+                              .redAlert), // Set the background color to blue
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ),
+              ],
+            ));
+      });
 }
