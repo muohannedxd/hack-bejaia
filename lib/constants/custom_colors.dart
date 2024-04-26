@@ -9,7 +9,7 @@ class CustomColors {
   static const Color buttonPrimary = Color(0xFF00B2FF);
   static const Color buttonSecondary = Color(0xFF2D201C);
   static const Color grey = Color(0xFFE5E5E5);
-  static const Color bgColor = Color(0xFFFEFEFE);
+  static const Color bgColor = Color(0xFFF3F3F3);
   static const Color hoverColor = Color(0xFF777E90);
   static const Color backgroundForPostItem = Color(0xFFD9D9D9);
   static const Color redAlert = Color.fromARGB(255, 186, 0, 0);
