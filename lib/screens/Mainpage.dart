@@ -202,8 +202,10 @@ class _MainpageState extends State<Mainpage> {
                                       width: 22,
                                       color: CustomColors.textPrimary,
                                     ),
-                                    onPressed: () => showQuaiDialog(
-                                        context) // Or call submitSearch directly here
+                                    onPressed: () {
+                                      showQuaiDialog(context);
+                                      // showWarningDialog(context);
+                                    } // Or call submitSearch directly here
                                     ),
                               ],
                             )
@@ -275,7 +277,7 @@ void showQuaiDialog(BuildContext context) {
                       ),
                       onPressed: () {
                         Navigator.of(context).pop();
-                        showWarningDialog(context);
+                        showSuccessDialog(context);
                       } // Or call submitSearch directly here
                       ),
                 ),
@@ -341,6 +343,61 @@ void showWarningDialog(BuildContext context) {
                   "Aucun Quai n’est disponible pour le moment pour le navire Bliss Ship",
                   textAlign: TextAlign.center,
                 ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  width: 120,
+                  child: FilledButton(
+                    child: Text(
+                      "Retour",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: TextSizes.medium),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          CustomColors
+                              .redAlert), // Set the background color to blue
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ),
+              ],
+            ));
+      });
+}
+
+void showSuccessDialog (BuildContext context) {
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+            backgroundColor: CustomColors.white,
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  height: 20,
+                ),
+                Image.asset(
+                  'assets/logo/success.png',
+                  width: 72,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text('RÉSERVATION RÉUSSIE',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: TextSizes.subtitle)),
                 SizedBox(
                   height: 20,
                 ),

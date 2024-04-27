@@ -17,7 +17,6 @@ class Splash extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: CustomColors.bgColor,
       body:
@@ -49,8 +48,7 @@ class Splash extends StatelessWidget {
                 Text(
                   'Des quais efficaces, Des navires réussis',
                   style: TextStyle(
-                      fontFamily: 'OleoScript',
-                      fontSize: TextSizes.title,
+                      fontSize: TextSizes.subtitle,
                       color: CustomColors.textGrey),
                   textAlign: TextAlign.center,
                 )

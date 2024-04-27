@@ -3,25 +3,25 @@ Map<int, Navire> naviresData = {
     id: 1,
     name: 'Bliss Ship',
     departureTime: '26 April 2024, 19:25',
-    estimatedArrivalTime: '3 days, 4 hours',
+    estimatedArrivalTime: '14 hours',
   ),
   2: Navire(
     id: 2,
     name: 'Sky Blue',
     departureTime: '23 April 2024, 11:05',
-    estimatedArrivalTime: '14 hours',
+    estimatedArrivalTime: '3 days, 4 hours',
   ),
   3: Navire(
     id: 3,
     name: 'Icon Of The Seas',
     departureTime: '25 April 2024, 20:25',
-    estimatedArrivalTime: '6 days, 2 hours',
+    estimatedArrivalTime: '3 days, 14 hours',
   ),
   4: Navire(
     id: 4,
     name: 'Tassili Board',
     departureTime: '10 April 2024, 08:25',
-    estimatedArrivalTime: '3 days, 14 hours',
+    estimatedArrivalTime: '6 days, 2 hours',
   ),
 };
 
