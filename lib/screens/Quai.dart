@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
@@ -11,7 +11,7 @@ class Quai extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(
-          'QUAI NUMERO 2',
+          'QUAI NUMERO 1',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
@@ -45,7 +45,7 @@ class Quai extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        'Passengers',
+                        'Passagiers',
                         style: TextStyle(fontSize: 16.0),
                       ),
                     ),
@@ -65,7 +65,7 @@ class Quai extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        'Occupied',
+                        'Occupé',
                         style: TextStyle(fontSize: 16.0, color: Colors.red),
                       ),
                     ),
@@ -79,7 +79,7 @@ class Quai extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Ship Inside: ',
+                    "Navire à l'intérieure: ",
                     style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
                   ),
                   Expanded(
@@ -99,7 +99,7 @@ class Quai extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Ship Type: ',
+                    'Type de Navire: ',
                     style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
                   ),
                   Expanded(
@@ -120,7 +120,7 @@ class Quai extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Remaining Time: ',
+                    'Temp Restant: ',
                     style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
                   ),
                   Expanded(
