@@ -65,7 +65,7 @@ class Quai extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        'Occupé',
+                        'Disponible',
                         style: TextStyle(fontSize: 16.0, color: Colors.red),
                       ),
                     ),
