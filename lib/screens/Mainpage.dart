@@ -57,7 +57,7 @@ class _MainpageState extends State<Mainpage> {
                 padding: EdgeInsets.only(left: 30, right: 30, top: 20),
                 child: Padding(
                   padding: const EdgeInsets.only(
-                      right: 12, top: 12, bottom: 6, left: 6),
+                      right: 6, top: 12, bottom: 6, left: 6),
                   child: CustomAppBar(),
                 )),
 
@@ -78,7 +78,7 @@ class _MainpageState extends State<Mainpage> {
                     Expanded(
                       child: TextField(
                         decoration: InputDecoration(
-                          hintText: 'Search',
+                          hintText: 'Trouver',
                           border: InputBorder.none,
                           contentPadding: EdgeInsets.only(
                             left: 20,

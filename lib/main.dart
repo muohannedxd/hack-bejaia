@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:navira/constants/custom_colors.dart';
 import 'package:navira/screens/Homepage.dart';
+import 'package:navira/screens/Notifications.dart';
 import 'package:navira/screens/Quai.dart';
 import 'package:navira/screens/Search.dart';
 import 'package:navira/screens/Splash.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
         '/homepage': (context) => Homepage(currentIndex: 0),
         '/search': (context) => Search(),
         '/quai': (context) =>  Quai(),
+        '/notifications': (context) => Notifications(),
       },
       home: const Splash()
     );

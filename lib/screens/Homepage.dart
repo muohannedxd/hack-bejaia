@@ -35,7 +35,7 @@ class _HomepageState extends State<Homepage> {
         drawer: Drawer(
           child: Center(child: Text('drawer')),
         ),
-        backgroundColor: CustomColors.white,
+        backgroundColor: CustomColors.bgColor,
         body: _pages[currentPageIndex],
         bottomNavigationBar: Visibility(
           visible: isShownBottomBar,

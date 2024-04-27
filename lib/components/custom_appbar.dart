@@ -1,4 +1,3 @@
-
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
@@ -25,21 +24,35 @@ class CustomAppBar extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Location', style: TextStyle(color: CustomColors.buttonPrimary, fontSize: 20)),
+            Text('Localisation',
+                style:
+                    TextStyle(color: CustomColors.buttonPrimary, fontSize: 20)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Icon(Icons.location_on, color: CustomColors.buttonPrimary,),
+                Icon(
+                  Icons.location_on,
+                  color: CustomColors.buttonPrimary,
+                ),
                 SizedBox(
                   width: 4,
                 ),
-                Text('Port De Bejaia', style: TextStyle(fontSize: TextSizes.subtitle))
+                Text('Port De Bejaia',
+                    style: TextStyle(fontSize: TextSizes.subtitle))
               ],
             )
           ],
         ),
-        CircleAvatar(child: const Text('AD'),)
+        IconButton(
+            onPressed: () {
+              Navigator.pushNamed(
+                context,
+                '/notifications',
+              );
+            },
+            iconSize: 32,
+            icon: Icon(Icons.notifications_none_outlined)),
       ],
     );
   }

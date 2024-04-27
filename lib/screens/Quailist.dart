@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:navira/constants/custom_colors.dart';
 import 'package:navira/constants/text_sizes.dart';
 import 'package:navira/data/quais.dart';
-import 'package:navira/screens/Quai.dart';
 
 class Quailist extends StatelessWidget {
   const Quailist({Key? key}) : super(key: key);
