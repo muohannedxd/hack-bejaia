@@ -176,40 +176,47 @@ class _MainpageState extends State<Mainpage> {
                     ),
                     Column(
                       children: naviresData.values.map((navire) {
-                        return Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(navire.name), // Display ship name
-                                Text(navire.departureTime
-                                    .toString()), // Display departure time
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  navire.estimatedArrivalTime,
-                                  style: TextStyle(color: Colors.red.shade900),
-                                ),
-                                SizedBox(
-                                  width: 4,
-                                ),
-                                IconButton(
-                                    icon: Image.asset(
-                                      'assets/logo/search_filled.png',
-                                      width: 22,
-                                      color: CustomColors.textPrimary,
-                                    ),
-                                    onPressed: () {
-                                      showQuaiDialog(context);
-                                      // showWarningDialog(context);
-                                    } // Or call submitSearch directly here
-                                    ),
-                              ],
-                            )
-                          ],
+                        return GestureDetector(
+                          onTap: () => Navigator.pushNamed(
+                            context,
+                            '/navire',
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(navire.name), // Display ship name
+                                  Text(navire.departureTime
+                                      .toString()), // Display departure time
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    navire.estimatedArrivalTime,
+                                    style:
+                                        TextStyle(color: Colors.red.shade900),
+                                  ),
+                                  SizedBox(
+                                    width: 4,
+                                  ),
+                                  IconButton(
+                                      icon: Image.asset(
+                                        'assets/logo/search_filled.png',
+                                        width: 22,
+                                        color: CustomColors.textPrimary,
+                                      ),
+                                      onPressed: () {
+                                        showQuaiDialog(context);
+                                        // showWarningDialog(context);
+                                      } // Or call submitSearch directly here
+                                      ),
+                                ],
+                              )
+                            ],
+                          ),
                         );
                       }).toList(), // Convert Iterable to List
                     )
@@ -375,7 +382,7 @@ void showWarningDialog(BuildContext context) {
       });
 }
 
-void showSuccessDialog (BuildContext context) {
+void showSuccessDialog(BuildContext context) {
   showDialog(
       context: context,
       builder: (BuildContext context) {

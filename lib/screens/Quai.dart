@@ -1,5 +1,6 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
-import 'package:navira/constants/custom_colors.dart';
 
 class Quai extends StatelessWidget {
   const Quai({Key? key}) : super(key: key);

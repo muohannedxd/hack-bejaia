@@ -32,11 +32,9 @@ class _HomepageState extends State<Homepage> {
     return ScrollConfiguration(
       behavior: BehaviorOfScroll(),
       child: Scaffold(
-        drawer: Drawer(
-          child: Center(child: Text('drawer')),
-        ),
         backgroundColor: CustomColors.bgColor,
         body: _pages[currentPageIndex],
+        drawer: Drawer(),
         bottomNavigationBar: Visibility(
           visible: isShownBottomBar,
           child: Container(

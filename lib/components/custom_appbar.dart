@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:navira/constants/custom_colors.dart';
@@ -15,7 +15,7 @@ class CustomAppBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         IconButton(
-            onPressed: () {},
+            onPressed: () => Scaffold.of(context).openDrawer(),
             iconSize: 14,
             icon: Image.asset(
               'assets/logo/menu.png',
